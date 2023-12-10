@@ -1,5 +1,5 @@
-import 'package:calculator_app/providers/calculator_provider.dart';
-import 'package:calculator_app/providers/dark_mode_provider.dart';
+import 'providers/calculator_provider.dart';
+import 'providers/dark_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

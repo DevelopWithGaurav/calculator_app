@@ -1,7 +1,8 @@
-import 'package:calculator_app/constants.dart';
-import 'package:calculator_app/providers/calculator_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../constants.dart';
+import '../../providers/calculator_provider.dart';
 
 class CalCScreen extends StatelessWidget {
   const CalCScreen({super.key});
@@ -24,12 +25,14 @@ class CalCScreen extends StatelessWidget {
           alignment: Alignment.bottomRight,
           child: Consumer<CalculatorProvider>(
               builder: (_, calculatorProvider, __) {
-            return Text(
-              calculatorProvider.inputExpression,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: const Color(0xAAbff3dc), letterSpacing: 3),
+            return FittedBox(
+              child: Text(
+                calculatorProvider.inputExpression,
+                style: Theme.of(context)
+                    .textTheme
+                    .displayLarge!
+                    .copyWith(color: const Color(0xAAbff3dc), letterSpacing: 3),
+              ),
             );
           }),
         ),

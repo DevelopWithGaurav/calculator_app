@@ -1,11 +1,9 @@
-import 'dart:developer';
-
-import 'package:calculator_app/providers/calculator_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/button_model.dart';
+import '../../providers/calculator_provider.dart';
 
 class CalCButton extends StatelessWidget {
   const CalCButton({super.key, required this.requiredButton});
