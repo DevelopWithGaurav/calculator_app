@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/button_model.dart';
@@ -21,16 +22,19 @@ class CalCButton extends StatelessWidget {
         if (requiredButton.actionType == ActionType.operand ||
             requiredButton.actionType == ActionType.operator) {
           calculatorProvider.inputExpression += requiredButton.label;
+          calculatorProvider.calculate();
         } else if (requiredButton.actionType == ActionType.clearAll) {
           calculatorProvider.inputExpression = '';
+          calculatorProvider.result = '';
         } else if (requiredButton.actionType == ActionType.clearLast) {
           calculatorProvider.clearLast();
+
         } else if (requiredButton.actionType == ActionType.equals) {
           calculatorProvider.calculate();
         }
       },
       borderRadius: BorderRadius.circular(100),
-      splashColor: Colors.grey.shade300.withOpacity(.3),
+      splashColor: Colors.grey.shade300.withOpacity(.4),
       child: Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(100),
@@ -50,7 +54,12 @@ class CalCButton extends StatelessWidget {
           ),
           child: Align(
             alignment: Alignment.center,
-            child: Text(
+            child: requiredButton.useSVG ?
+                SvgPicture.asset(
+                  requiredButton.svgIcon ?? '',
+                  width: 32,
+                )
+                : Text(
               requiredButton.label,
               textAlign: TextAlign.center,
               style: const TextStyle(

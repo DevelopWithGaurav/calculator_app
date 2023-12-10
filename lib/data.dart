@@ -1,3 +1,5 @@
+import 'package:calculator_app/generated/assets.dart';
+
 import 'models/button_model.dart';
 
 List<ButtonModel> buttons = [
@@ -13,6 +15,8 @@ List<ButtonModel> buttons = [
   ButtonModel(
     label: 'C',
     actionType: ActionType.clearLast,
+    useSVG: true,
+    svgIcon: Assets.svgClearLast,
   ),
   ButtonModel(
     label: '/',
